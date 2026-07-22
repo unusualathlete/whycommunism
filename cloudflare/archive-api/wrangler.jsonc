@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "whycommunism-archive-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-21",
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "archive.whycommunism.com",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "GITHUB_OWNER": "unusualathlete",
+    "GITHUB_REPO": "whycommunism-archives",
+    "GITHUB_BRANCH": "main"
+  }
+}
