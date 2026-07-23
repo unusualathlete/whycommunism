@@ -26,10 +26,12 @@
 :root{--ink:#e3ddcf;--dim:#96907e;--warm:#f0a05a;--rose:#f0846f;--gold:#e8c15a;
 --serif:'Source Serif',Georgia,serif;--mono:'Plex Mono',ui-monospace,monospace;--colw:660px}
 *{margin:0;padding:0;box-sizing:border-box}
-html{background:#08070c}
+html{background:#08070c;overflow-x:hidden;overflow-x:clip;width:100%}
 body{background:transparent;color:var(--ink);font-family:var(--serif);font-size:19.5px;
-line-height:1.84;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+line-height:1.84;overflow-x:hidden;overflow-x:clip;width:100%;max-width:100%;
+touch-action:pan-y pinch-zoom;-webkit-font-smoothing:antialiased;
 text-shadow:0 1px 16px rgba(0,0,0,.66)}
+.hero,.act,.foot{overflow-x:clip}
 ::selection{background:rgba(240,160,90,.35)}
 a{color:#8fd8c8}
 em{font-style:italic}
@@ -159,6 +161,9 @@ font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--dim);opa
 html.js .rv{opacity:0;transform:translateY(26px);filter:blur(7px);
 transition:opacity 1s ease,transform 1s cubic-bezier(.2,.8,.3,1),filter 1.15s ease}
 html.js .rv.on{opacity:1;transform:none;filter:blur(0)}
+/* captions centre with their own transform — keep it through the reveal */
+html.js .rv.sd{transform:translate(-50%,22px)}
+html.js .rv.sd.on{transform:translate(-50%,0)}
 /* playhead: the paragraph now playing */
 .scol p,.card p{position:relative;transition:color .8s ease}
 .scol p.now,.card p.now{color:#f2ecdb}
@@ -197,6 +202,7 @@ html.js .wv b{animation:none;height:var(--h)}
 html.js .tE,html.js .tA,html.js .tN,html.js .sub,html.js .by{animation:none;opacity:1}
 html.js .cue,html.js #tape .rec{animation:none}
 html.js .rv{opacity:1;transform:none;transition:none;filter:none}
+html.js .rv.sd,html.js .rv.sd.on{transform:translateX(-50%)}
 html.js .rv .w8,html.js .rv .klong,html.js .rv .kshort{transition:none}
 html.js .rv.on .w8{letter-spacing:.14em}
 html.js .rv .kdel{opacity:1;transform:none}
